@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(160, 253, 222);
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-family: sans-serif;
+            color: darkcyan;
+        }
+
+        label,
+        input {
+            margin: 10px;
+            border-radius: 5px;
+            padding: 7px;
+        }
+
+        input {
+            width: 125%;
+        }
+
+        .sub {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            width: 50%;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .top {
+            margin-bottom: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <h2>Register Users</h2>
+        </div>
+        <form action="/user/add" method="POST">
+            <label>Name:</label><br>
+            <input type="text" name="name" placeholder="enter your name ..." required /><br>
+            <label for="fname">Email:</label><br>
+            <input type="text" id="fmail" name="email" required placeholder="enter your email..."><br>
+            <label for="fname">Profession:</label><br>
+            <input type="text" id="fprofession" name="profession" required placeholder="enter your profession..."><br>
+            <label for="fname">Country</label><br>
+            <input type="options" id="fcountry" name="country" required placeholder="select your country...">
+            <br /><br>
+            <input type="submit" class="sub" value="Submit"></input>
+        </form>
+    </div>
+</body>
+
+</html>
