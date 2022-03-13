@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: rgb(195, 248, 230);
+    }
+
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    table {
+      width: 100%;
+      height: 100%;
+    }
+
+    tr:hover {
+      background-color: rgb(155, 236, 247);
+    }
+
+    button {
+      background-color: black;
+      font-style: oblique;
+      font-size: medium;
+      margin-top: 5px;
+      width: 10%;
+      border-radius: 5px;
+      padding: 5px;
+
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+
+    }
+
+    .col {
+      font-size: x-large;
+      font-style: oblique;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="table .table-hover">
+    <thead>
+      <tr>
+        <th class="col">Name</th>
+        <th class="col">Email</th>
+        <th class="col">Profession</th>
+        <th class="col">Country</th>
+      </tr>
+    </thead>
+    <% users.forEach(user=> { %>
+
+      <tbody>
+        <tr>
+          <!-- <th scope="row">1</th> -->
+          <td>
+            <%=user.name%>
+          </td>
+          <td>
+            <%=user.Email%>
+          </td>
+          <td>
+            <%=user.profession%>
+          </td>
+          <td>
+            <%=user.Country%>
+          </td>
+        </tr>
+      </tbody>
+      <% })%>
+  </table>
+  <button><a href="/form/user">Add user</a></button>
+</body>
+
+</html>
+
+
+<!-- <table class="table table-hover">
+        ...
+      </table> -->
