@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link href = "/style.css" rel = "stylesheet">
+    </head>
+  <body>
+    <div>
+      <table style="width:100%" >
+          <tr class="heading">
+              <th>Name</th>
+              <th>Email</th>
+              <th>Promote/Demote</th>
+              <th>Delete</th>
+          </tr>
+          <% users.forEach(user=> { %>
+              <% if (user.isPromoted==true) { %>
+                  <tr class="green">
+                      <td><%= user.name %></td>
+                      <td><%= user.email %></td>
+                      <%} else if (user.isPromoted==false) { %>
+                  <tr class="red">
+                      <td><%= user.name %></td>
+                      <td><%= user.email %></td>
+                      <% } else { %>
+                  <tr class="black">
+                      <td><%= user.name %></td>
+                      <td><%= user.email %></td>
+                      <% } %>
+                      <td>
+                        <form method="POST" action="/user/<%= user._id %>/?_method=PUT">
+                            <button id="edit-<%= user.name %>" type="submit">Promote/Demote</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="/user/<%= user._id %>?_method=DELETE">
+                            <button id="delete-<%= user.name %>">Delete</button>
+                        </form>
+                    </td>
+            </tr>
+            <% }) %>
+
+      </table>
+      <button class="addUser"><a href="/form">Add user</a></button>
+    </div>
+  </body>
+</html> 
