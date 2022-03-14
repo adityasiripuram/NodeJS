@@ -7,7 +7,7 @@ var jwt = require('jsonwebtoken');
 const { body, param, validationResult } = require('express-validator');
 const SECRET = "RESTAPI";
 
-
+//------------Display All Posts of the user--------------
 router.get("/posts", async (req, res) =>{
     const posts = await Post.find();
     res.json({
@@ -15,7 +15,7 @@ router.get("/posts", async (req, res) =>{
         posts
     });
 })
-
+//-------------Create New Posts----------------------------
 router.post("/posts", async (req, res) => {
     const post = await Post.create({
         title: req.body.title,
@@ -28,7 +28,7 @@ router.post("/posts", async (req, res) => {
         post
     })
 })
-
+//--------------Update the Post------------------
 router.put("/posts/:id", async (req, res) => {
     const post = await Post.updateOne({_id: req.params.id, user: req.user}, {body: req.body.body});
     if(post.modifiedCount > 0){
@@ -42,7 +42,7 @@ router.put("/posts/:id", async (req, res) => {
     }
 
 })
-
+//------------Delete the Post----------------------------
 router.delete("/posts/:id", async (req, res) => {
     const post = await Post.deleteOne({_id: req.params.id, user: req.user});
     console.log(post);

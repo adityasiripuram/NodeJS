@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 
 const loginRoutes = require("./routes/login");
 const postRoutes = require("./routes/posts");
-const userRoutes=require("./routes/posts");
+const userRoutes=require("./routes/user");
 const SECRET = "RESTAPI";
 
 const app = express();
@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost:27017/assignment_5');
 
 
 app.use("/posts", (req, res, next) =>{
-    var token = req.headers.authorization.split("alpha ")[1];
+    var token = req.headers.authorization.split("test ")[1];
 
     if(!token){
         return res.status(401).json({
@@ -40,4 +40,4 @@ app.use("/", postRoutes);
 app.use('/users',userRoutes)
 
 
-app.listen(5000, () => console.log("server is listening"));
+app.listen(3000, () => console.log("server is listening"));
